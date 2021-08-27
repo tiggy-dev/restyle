@@ -13,9 +13,9 @@ const useDimensions = () => {
   };
 
   useEffect(() => {
-    Dimensions.addEventListener('change', onChange);
+    const unsubsribe = Dimensions.addEventListener('change', onChange);
 
-    return () => Dimensions.removeEventListener('change', onChange);
+    return unsubsribe;
   }, []);
 
   return dimensions;
